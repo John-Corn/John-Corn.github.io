@@ -2,14 +2,21 @@ const canvas = document.getElementById("canvas");
 canvas.width = window.innerWidth - 800;
 canvas.height = 700;
 
+let start_background_color ="white";
 let context = canvas.getContext("2d");
-context.fillStyle = "white";
+context.fillStyle = start_background_color;
 context.fillRect(0, 0, canvas.width, canvas.height);
 
 let draw_color = "black";
 let draw_width = "2";
 let is_drawing = false;
 
+let restore_array = [];
+let index = -1;
+
+function change_color(element){
+    draw_color = element.style.background;
+}
 
 canvas.addEventListener("touchstart", start, false);
 canvas.addEventListener("touchmove", draw, false);
@@ -49,4 +56,28 @@ function stop(event){
         is_drawing = false;
     }
     event.preventDefault();
+
+    if(event.type != 'mouseout'){
+        restore_array.push(context.getImageData(0,0, canvas.width, canvas.height));
+        index += 1;
+    }
+}
+
+function clear_canvas(){
+    context.fillStyle = start_background_color;
+    context.clearRect(0,0, canvas.width, canvas.height)
+    context.fillRect(0,0, canvas.width, canvas.height)
+
+    restore_array = [];
+    index = -1;
+}
+
+function undo_last(){
+    if(index <= 0) {
+        clear_canvas();
+    }else{
+        index -= 1;
+        restore_array.pop();
+        context.putImageData(restore_array[index], 0, 0);
+    }
 }
