@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth - 800;
-canvas.height = 700;
+canvas.width = 1280;
+canvas.height = 720;
 
 let start_background_color ="white";
 let context = canvas.getContext("2d");
