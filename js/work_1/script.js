@@ -48,15 +48,15 @@ btnDownload.addEventListener("click", function() {
 function start(event){
     is_drawing = true;
     context.beginPath();
-    context.moveTo(event.clientX - canvas.offsetLeft,
-                    event.clientY - canvas.offsetTop);
+    context.moveTo(event.offsetX,
+                    event.offsetY);
     event.preventDefault();
 }
 
 function draw(event) {
     if(is_drawing){
-        context.lineTo(event.clientX - canvas.offsetLeft,
-                        event.clientY - canvas.offsetTop);
+        context.lineTo(event.offsetX,
+                        event.offsetY);
         context.strokeStyle = draw_color;
         context.lineWidth = draw_width;
         context.lineCap = "round";
