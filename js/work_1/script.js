@@ -2,6 +2,9 @@ const canvas = document.getElementById("canvas");
 canvas.width = 1280;
 canvas.height = 720;
 
+const btnDownload = document.querySelector("#btnDownload");
+const imgConverted = document.querySelector("#imgConverted");
+
 let start_background_color ="white";
 let context = canvas.getContext("2d");
 context.fillStyle = start_background_color;
@@ -27,6 +30,20 @@ canvas.addEventListener("touchend", stop, false);
 canvas.addEventListener("mouseup", stop, false);
 canvas.addEventListener("mouseout", stop, false);
 
+btnDownload.addEventListener("click", function() {
+    //IE/Edge Support (PNG Only)
+    if (window.navigator.msSaveBlob) {
+        window.navigator.msSaveBlob(canvas.msToBlob(), "canvas-image.png");
+    } /*Every Other Browser*/ else {
+        const a = document.createElement("a");
+
+        document.body.appendChild(a);
+        a.href = canvas.toDataURL();
+        a.download = "canvas-image.png";
+        a.click();
+        document.body.removeChild(a);
+    }
+})
 
 function start(event){
     is_drawing = true;
@@ -81,3 +98,6 @@ function undo_last(){
         context.putImageData(restore_array[index], 0, 0);
     }
 }
+
+
+
