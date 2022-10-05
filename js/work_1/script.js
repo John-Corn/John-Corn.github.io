@@ -3,7 +3,6 @@ canvas.width = 1280;
 canvas.height = 720;
 
 const btnDownload = document.querySelector("#btnDownload");
-const imgConverted = document.querySelector("#imgConverted");
 
 let start_background_color ="white";
 let context = canvas.getContext("2d");
