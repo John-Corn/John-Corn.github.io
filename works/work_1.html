@@ -26,9 +26,59 @@
 
 
     <!--MAIN CONTENT-->
+    <div class="Tekstit">
+        <h1>Explanation about the app</h1>
+        <p class="expText">
+            In this drawing application, you can make your own beautiful artwork using either the 4 primary colors or select any color your heart desires from a color picker. Want the brush to be big or small, you can change that too. Didn't like what you just drew? No matter you can always undo it or just clear the whole canvas and start all over.
+
+            <br><br>Finally, when you are happy with your masterpiece you can download it to your device as a png file.
+            <br><br><br>
+        </p>
+        <h1>How does the application work?</h1>
+        <p class="expText">
+            I wanted to make a drawing application on the website.
+            <br><br>
+            To get the drawing working, first I need to make a canvas element for the HTML page. Canvas is the element where drawing happens just like in a normal canvas in real life.
+            <br><br>
+            Now I need to think about what tools I want the user to have:
+        </p>
+        <h4 class="expText">
+            • Undo & Clear buttons •
+            <br><br>
+            • 4 Primary & black and white as default colors to choose from •
+            <br><br>
+            • Full RGB color picker so users can choose whatever color they want •
+            <br><br>
+            • Brush size slider •
+            <br><br>
+            • Download button so users can download their artwork on their device •
+        </h4>
+        <p class="expText">
+            After that, I add those tool elements in HTML.
+            <br><br>
+            Styling in CSS for this isn't too complicated, I just need to center everything and put the tools under the canvas in a nice row.
+        </p>
+        <h4 class="expText">
+            JavaScript for creating the application:
+        </h4>
+        <p class="expText">
+            We declare canvas to variable and give it max width and height. Other variables include starting background color, download button, drawing color, drawing width, drawing false, empty array, and index count.
+            <br><br>
+            We give addEventListener to canvas and download button so when users click on canvas they start drawing and when pressed the download button they download the canvas image.
+            <br><br>
+            There are different ways download works depending on the browser users use. Mainly Internet Explorer/Edge and all other browsers.
+            <br><br>
+            Drawing functions check if the drawing false variable is set to true if so canvas checks where users' cursor moves and draws round lines depending on the chosen color and what brush width has been selected.
+            <br><br>
+            Index and empty array saves all drawing in them. The index is set to a -1 value and when the user has done the first line array adds 1 and the empty array now has one line added to it.
+            <br><br>
+            Undo and clear buttons set on the HTML element have functions in them and they use the set empty array and index variables. The clear button resets the index to the default -1 value, empties the array, and fills the whole canvas with the default background color. Undo button checks if the index is below zero, if so then it clears the canvas but if not it takes away one item from the array away and minus one number from the index. So it deletes the last done drawing.
+        </p>
+        <br><br>
+        <h1>Drawing Application</h1>
+    </div>
     <div class="field">
         <canvas id="canvas"></canvas>
-        <img src="" id="imgConverted" style="float: left; border: 2px solid #00f; margin-left: 10px;">
         <div class="tools">
             <button onclick="undo_last()" type="button" class="button">UNDO</button>
             <button onclick="clear_canvas()" type="button" class="button">CLEAR</button>
@@ -37,6 +87,8 @@
             <div onclick="change_color(this)" class="color-field" style="background: blue"></div>
             <div onclick="change_color(this)" class="color-field" style="background: green"></div>
             <div onclick="change_color(this)" class="color-field" style="background: yellow"></div>
+            <div onclick="change_color(this)" class="color-field" style="background: black"></div>
+            <div onclick="change_color(this)" class="color-field" style="background: white"></div>
 
             <input oninput="draw_color = this.value" type="color" class="color-picker">
             <input oninput="draw_width = this.value" type="range" min="1" max="100" class="pen-range">

@@ -11,7 +11,7 @@ body {
 .container{
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 110px;
     background-color: rgba(0, 0, 0, 0.100);
 }
 
@@ -31,7 +31,7 @@ body {
     position: relative;
     float: right;
     right: 20px;
-    top: 20px;
+    top: 25px;
     clear: right;
     font-weight: bold;
     font-size: 30px;
@@ -42,21 +42,67 @@ body {
     margin-top: 100px;
 }
 
+.Tekstit {
+    padding-left: 400px;
+    padding-right: 400px;
+    margin-top: 50px;
+    width: 100%;
+}
+
 h1 {
+    margin-top: 20px;
     color: #575757;
     text-align: center;
     clear: both;
 }
 
+h4 {
+    color: #575757;
+}
+
+.expText {
+    margin-top: 40px;
+    top: 20px;
+    text-align: center;
+}
+
 .line {
     position: relative;
-    top: 40px;
+    top: 60px;
     width: 100%;
     height: 5px;
     background-color: #575757;
     margin-left: auto;
     margin-right: auto;
 }
+
+footer {
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    left: -10%;
+    background-color: rgba(0, 0, 0, 0.100);
+    margin:10%;
+    padding: 2%
+}
+
+.sosiaalit {
+    font-family:'Courier New', Courier, monospace;
+    position: relative;
+    float: right;
+    right: 20px;
+    top: 30px;
+    clear: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #7CB06D;
+
+}
+
+
+
 
 
 
@@ -73,7 +119,7 @@ a {
     text-decoration: inherit;
 }
 
-#kakka{
+#laatikko{
     background-color: #c1c2b980;
     width: 100%;
     top: 100px;
@@ -87,7 +133,7 @@ a {
 .paragraph{
     position: absolute;
     float: left;
-    top: 50px;
+    top: 80px;
     width: auto;
     height: 150px;
     overflow: auto;
@@ -140,34 +186,6 @@ a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Responsive Framework */
 
 .row{
@@ -177,26 +195,23 @@ a {
 /******* Large devices only ********/
 
 @media screen and (min-width: 992px){
-    .col-lg-4, .col-lg-5, .col-lg-6 {
+    .col-lg-5, .col-lg-6{
         float: left;
         padding-left: 20px;
         padding-right: 20px;
     }
-    .col-lg-4 {
-        width: 33.33%;
-    }
     .col-lg-5 {
-        width: 66.66%;
+        width: 50%;
     }
     .col-lg-6 {
-        width: 99.99%;
+        width: 50%;
     }
 }
 
 /******* Medium devices only *******/
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-    .col-md-6, .col-md-7, .col-md-12 {
+    .col-md-6, .col-md-7{
         float: left;
         padding-left: 20px;
         padding-right: 20px;
@@ -208,25 +223,16 @@ a {
     .col-md-7 {
         width: 50%;
     }
-    .col-md-12 {
-        width: 100%;
-    }
-    #p3 {
-        width: 19%;
-    }
 }
 
 /******* Small devices only ********/
 
 @media screen and (max-width: 767px) {
-    .col-sm-10, .col-sm-11, .col-sm-12 {
+    .col-sm-11, .col-sm-12{
         float: left;
         padding-bottom: 20px;
         padding-left: 20px;
         padding-right: 20px;
-    }
-    .col-sm-10 {
-        width: 100%;
     }
     .col-sm-11 {
         width: 100%;
@@ -239,5 +245,8 @@ a {
     }
     .links {
         font-size: 5vw;
+    }
+    .sosiaalit {
+        font-size: 3vw;
     }
 }
